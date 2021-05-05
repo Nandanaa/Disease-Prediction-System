@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SOA CAT2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<center><img align="center" height="100" width="120" src="https://www.joliet.gov/Home/ShowImage?id=2354&t=636473807163500000"></center><br/>
+			<form class="contact100-form validate-form" action = "/symptoms" method = "POST">
+				<span class="contact100-form-title">
+					Health++ - Enter Your Details 
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Topic is required">
+					<span class="label-input100">Enter Your Name</span>
+					<input class="input100" type="text" name="Name" placeholder="e.g. Hannibal Lecter">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Query is required">
+					<span class="label-input100">Enter Your Age</span>
+					<input class="input100" type="number" name="Name2" placeholder="e.g. 19">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Query is required">
+					<span class="label-input100">Enter Your Height (IN CMS.)</span>
+					<input class="input100" type="number" name="Name3" placeholder="e.g. 178">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Query is required">
+					<span class="label-input100">Enter Your Weight (IN KGS)</span>
+					<input class="input100" type="number" name="Name4" placeholder="e.g. 64">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Query is required">
+					<span class="label-input100">Upload Transcript</span>
+					<input class="input100" type="file" id="fileButton" name="fileButton" placeholder="e.g. 64">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+			<br/>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+
+<script>
+	var fileButton = document.getElementById("fileButton");
+  	fileButton.addEventListener('change', function(e){
+  			var file = e.target.files[0];
+  			var storageRef = firebase.storage().ref(file.name);
+  			storageRef.put(file);
+  	});	
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA2DYxhOKDjUPR-h7crMr3z8i4tTx64_dE",
+    authDomain: "health-plus-plus-45ee6.firebaseapp.com",
+    databaseURL: "https://health-plus-plus-45ee6.firebaseio.com",
+    projectId: "health-plus-plus-45ee6",
+    storageBucket: "health-plus-plus-45ee6.appspot.com",
+    messagingSenderId: "928271874587",
+    appId: "1:928271874587:web:0cecb91397c11e7a4296be",
+    measurementId: "G-F62PXBHKGK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f286391a-eecb-46f5-a022-5b81a4c5c3f4";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>
