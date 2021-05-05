@@ -1,5 +1,3 @@
-## 💉🩸 Team Hannibal Lecter; VIT Hackathon 💊🩺
-
 ## Health++ The Online Health Diagnosis Assistant
 
 ### Problem Statement:
